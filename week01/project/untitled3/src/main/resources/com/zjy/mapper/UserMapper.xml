@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjy.mapper.UserMapper">
+    <select id="selectAll" resultType="com.zjy.pojo.User">
+        select * from User;
+    </select>
+    <select id="selectByNumPassword" resultType="com.zjy.pojo.User">
+        select *
+        from User
+        where number=#{number} and password=#{password}
+    </select>
+    <insert id="insertUser">
+        insert into
+        User(number,password)
+        values(#{number},#{password})
+    </insert>
+    <select id="selectByNum" resultType="com.zjy.pojo.User">
+        select *
+        from User
+        where number=#{number}
+    </select>
+    <select id="selectDormByNum" resultType="String">
+        select dorm
+        from User
+        where number=#{number}
+    </select>
+    <update id="updateDormByNum">
+        update User
+        set dorm=#{dorm}
+        where number=#{number}
+    </update>
+    <update id="updatePasswordByNum">
+        update User
+        set password=#{password}
+        where number=#{number}
+    </update>
+</mapper>
