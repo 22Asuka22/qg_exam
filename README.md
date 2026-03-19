@@ -1,2 +1,0 @@
-# qg_exam
-exam
