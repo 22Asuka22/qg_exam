@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjy.mapper.DormAffairMapper">
+    <insert id="insertDormAffair">
+        insert into
+        dormaffair(number,dorm,problem,phone,time,state)
+        values(#{number},#{dorm},#{problem},#{phone},#{time},#{state})
+    </insert>
+    <select id="selectDormAffairByNum" resultType="com.zjy.pojo.DormAffair">
+        select *
+        from dormaffair
+        where number=#{number}
+    </select>
+    <delete id="deleteDormAffairById">
+        delete from
+        dormaffair
+        where id=#{id}
+    </delete>
+    <select id="selectDormAffairByState" resultType="com.zjy.pojo.DormAffair">
+        select *
+        from dormaffair
+        where state=#{state}
+    </select>
+    <select id="selectAllDormAffair" resultType="com.zjy.pojo.DormAffair">
+        select *
+        from dormaffair
+    </select>
+    <update id="updateState">
+        update dormaffair
+        set state=#{state}
+        where id=#{id}
+    </update>
+</mapper>
